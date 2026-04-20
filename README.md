@@ -1,11 +1,18 @@
 # Multi-Model Machine Learning identifies MAPT, CHEK1, AURKA as Breast Cancer Prognostic Markers
 
-** Abstract
+Can multi-model machine learning identify gene biomarkers that correlate with breast cancer survival duration to enable
+personalized treatment? Breast cancer is the most frequently diagnosed cancer among women worldwide, with approximately
+310,720 new cases expected in the United States in 2024 alone (NCI SEER). It is the second leading cause of cancer death
+among women. While overall five-year survival rates reach 90% when detected early, outcomes vary dramatically based on
+cancer subtype, stage, and individual patient characteristics. This variation underscores the urgent need for precision
+medicine approaches that can predict how long a patient will survive and tailor treatment accordingly. 
 
-Breast cancer is the most common cancer among women globally, and the second leading cause of cancer death. While early detection improves survival rates, personalizing treatment based on genomic biomarkers could further increase survival duration. This project applies a multi-model machine learning approach to identify key gene biomarkers correlating with breast cancer survival duration, enabling physicians to personalize treatment. I hypothesized that different models contribute complementary findings: linear regression captures proportional gene-survival relationships, random forest reveals non-linear interactions, and neural network could perform deep analysis on larger datasets but was anticipated to underperform on the small METABRIC dataset (n=1904 patients). 
+Existing research in cancer genomics has demonstrated that gene expression profiles can reveal molecular subtypes of 
+breast cancer with distinct clinical outcomes. The METABRIC consortium (Curtis et al., 2012; Pereira et al., 2016) 
+characterized the genomic and transcriptomic landscape of over 2,000 breast tumors, identifying novel subgroups with 
+different survival patterns. However, most machine learning applications in this field focus on predicting binary survival 
+outcomes (alive vs. deceased) rather than continuous survival duration, which is far more clinically valuable for treatment 
+planning.  This project addresses that gap by using three complementary machine learning models to predict survival time and to
+discover which specific genes most strongly influence survival duration, enabling physicians to customize treatment
+plans for individual patients. 
 
-Using the METABRIC dataset, I preprocessed gene expression and clinical data by imputing missing values and encoding categorical variables. I trained three models?ElasticNet linear regression, random forest, and PyTorch neural network?using 70/15/15 train/validation/test split to predict overall survival time. 
-
-Random forest achieved the best test performance (r?=0.147), followed by linear regression (r?=0.138), while the neural network underperformed (r?=0.052) as anticipated. The models identified MAPT, CHEK1, and AURKA as top gene biomarkers strongly associated with survival duration, consistent with published cancer genomics research. 
-
-The analysis focused on genomic factors, yet survival duration also depends on age, comorbidities, lifestyle, and unrelated causes of death, introducing variance. The consistent under-prediction of survival durations aligns with this limitation and validates the integrity of our genomic-focused approach. These findings demonstrate that complementary models can uncover actionable genomic biomarkers, offering a pathway toward personalized breast cancer treatment and improved prognosis outcomes. 
